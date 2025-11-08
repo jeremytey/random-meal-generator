@@ -1,4 +1,4 @@
-# 🍜 Random Meal Generator
+#  Random Meal Generator
 
 This is a simple web application that generates a random meal recipe at the click of a button. It's built with vanilla JavaScript, HTML, and CSS, and it fetches data from the free [TheMealDB API](https://www.themealdb.com/api.php).
 
@@ -22,7 +22,7 @@ This project was built to practice core JavaScript skills, specifically `async/a
 
 ---
 
-## 🚀 How to Run
+##  How to Run
 
 Since this is a simple front-end project, you can run it locally without any server.
 
@@ -38,7 +38,7 @@ Since this is a simple front-end project, you can run it locally without any ser
 
 ---
 
-## 🧠 What I Learned
+##  What I Learned
 
 This project was a great exercise in:
 

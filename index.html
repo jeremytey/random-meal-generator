@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Random Meal Generator</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Random Meal Generator</h1>
+  </header>
+
+  <main class="container">
+    <section class="controls card">
+      <button id="random-btn" class="btn primary">Get Random Meal</button>
+      <div id="loading" class="muted hidden" aria-hidden="true">Loading…</div>
+      <div id="error" class="error hidden" role="alert"></div>
+    </section>
+
+    <section id="meal" class="card hidden" aria-live="polite">
+      <h2 id="meal-title"></h2>
+      <div class="media">
+        <img id="meal-image" alt="" />
+        <div class="media-body">
+          <h3>Ingredients</h3>
+          <ul id="ingredients"></ul>
+        </div>
+      </div>
+
+      <h3>Instructions</h3>
+      <p id="instructions"></p>
+
+      <div id="video" class="video hidden"></div>
+    </section>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
