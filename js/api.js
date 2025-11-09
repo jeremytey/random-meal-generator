@@ -1,6 +1,7 @@
 // js/api.js
 
-const API_RANDOM_URL = 'www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata';
+const API_RANDOM_URL = 'https://www.themealdb.com/api/json/v1/1/random.php';
+
 
 /**
  * fetchRandomMeal()
@@ -15,8 +16,11 @@ export async function fetchRandomMeal() {
             throw new Error('Network response was not ok');
         }   
         const data = await response.json();
+        const meal = data.meals[0];
+        console.log(meal);
+        return meal;
+       
 
-        console.log(data);
     } catch (error) {
         console.error('Error fetching random meal:', error);
     
