@@ -20,11 +20,9 @@ export async function fetchRandomMeal() {
         console.log(meal);
         return meal;
        
-
     } catch (error) {
         console.error('Error fetching random meal:', error);
     
     }
 }
 
-fetchRandomMeal();
