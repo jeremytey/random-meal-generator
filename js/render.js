@@ -70,10 +70,10 @@ export function renderYouTube(meal) {
       iframe.height = '315';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       iframe.allowFullscreen = true;
-      videoContainer.appendChild(iframe);
-      videoContainer.classList.remove('hidden');
+      video.appendChild(iframe);
+      video.classList.remove('hidden');
     }
   } else {
-    videoContainer.classList.add('hidden'); // 
+    video.classList.add('hidden'); // 
   }
 }

@@ -16,9 +16,11 @@ export async function fetchRandomMeal() {
             throw new Error('Network response was not ok');
         }   
         const data = await response.json();
-        const meal = data.meals[0];
-        console.log(meal);
-        return meal;
+
+        if (!data.meals || !data.meals[0]) {
+            throw new Error('No meal data found');
+        }
+        return data.meals[0];
        
     } catch (error) {
         console.error('Error fetching random meal:', error);
