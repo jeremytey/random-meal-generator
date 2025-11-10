@@ -18,7 +18,7 @@ import { renderMeal, renderError, clearMealDisplay,renderYouTube } from './rende
     renderMeal(meal);
     renderYouTube(meal);
   } catch (error) {
-    console.error('❌ Caught error in handleNewMealClick:', error);
+    console.error('Caught error in handleNewMealClick:', error);
     renderError('Failed to fetch a new meal. Please try again.');
   } finally {
     loadingIndicator.classList.add('hidden');
