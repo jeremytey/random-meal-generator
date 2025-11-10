@@ -22,7 +22,7 @@ export async function fetchRandomMeal() {
        
     } catch (error) {
         console.error('Error fetching random meal:', error);
-    
+        throw error;
     }
 }
 

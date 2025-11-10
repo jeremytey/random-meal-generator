@@ -1,6 +1,5 @@
 // js/render.js
 import { parseIngredients } from './utils.js';
-import { fetchRandomMeal } from './api.js';
 
 
 export function renderMeal(meal) {
@@ -27,41 +26,54 @@ export function renderMeal(meal) {
   });
 
   instructions.textContent = meal.strInstructions;
-
-  // show section
   container.classList.remove('hidden');
 }
 
 
 export function renderError(message) {
-  const container = document.querySelector('#meal');
-  container.innerHTML = '';
-  const errorDiv = document.createElement('div');
+  const errorDiv = document.querySelector('#error');
+  errorDiv.innerHTML = '';
   errorDiv.textContent = message;
   errorDiv.style.color = 'red';
-  container.appendChild(errorDiv);
+  errorDiv.classList.remove('hidden');
   
 }
 
 
 export function clearMealDisplay() {
   const container = document.querySelector('#meal');
-  container.innerHTML = '';
+  container.classList.add('hidden');
+
+  const errorDiv = document.querySelector('#error');
+  errorDiv.classList.add('hidden');
+  errorDiv.textContent = '';
 }
 
 export function renderYouTube(meal) {
   const video = document.querySelector('#video');
   video.innerHTML = '';
+
   if (meal.strYoutube) {
-    const iframe = document.createElement('iframe');
-    const videoId = meal.strYoutube.split('v=')[1];
-    iframe.src = `https://www.youtube.com/embed/${videoId}`;
-    iframe.width = '560';
-    iframe.height = '315';
-    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-    iframe.allowFullscreen = true;
-    video.appendChild(iframe);
-    video.classList.remove('hidden');
+    let videoId;
+    
+    // Handle both URL formats
+    if (meal.strYoutube.includes('v=')) {
+      videoId = meal.strYoutube.split('v=')[1].split('&')[0]; 
+    } else if (meal.strYoutube.includes('youtu.be/')) {
+      videoId = meal.strYoutube.split('youtu.be/')[1].split('?')[0]; 
+    }
+    
+    if (videoId) {
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
+      iframe.width = '560';
+      iframe.height = '315';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      videoContainer.appendChild(iframe);
+      videoContainer.classList.remove('hidden');
+    }
+  } else {
+    videoContainer.classList.add('hidden'); // 
   }
 }
-
